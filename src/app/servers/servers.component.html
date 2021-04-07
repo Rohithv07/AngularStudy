@@ -1,10 +1,21 @@
+<label>Server Name</label>
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)">  Access to event data -->
+
+<input type="text" class="form-control" [(ngModel)]="serverName"> <!-- Two way binding -->
+
+ <!-- <p>{{ serverName }}</p> -->
 <button 
 class="btn btn-primary" 
 [disabled]="!allowNewServer"
 (click)="onCreateServer()"> <!-- event will occur -->
 Add Server</button> <!--[disabled] indicates property binding. We can also bind other properties rather than html properties</!-->
-<!-- <p [innerText]="allowNewServer"></p> -->
-<p> {{ serverCreationStatus }}</p>
-<app-server></app-server>
-<app-server></app-server>
 
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p> {{ serverCreationStatus }}</p> -->
+
+<p *ngIf="serverCreated">Server was created with name {{ serverName }}</p>  <!-- ngIf - structural directive as it changes the dom-->
+
+<app-server *ngFor="let server of servers"></app-server>  <!-- structural directive -->
+
+<!-- <app-server></app-server>
+ -->

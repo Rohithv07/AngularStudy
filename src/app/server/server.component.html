@@ -1,1 +1,4 @@
-<p>Inside the {{'Rohith server'}} component with ID {{ serverId }} and status {{ getServerStatus() }}</p> <!-- String interpolation -->
+<p [ngStyle]="{ backgroundColor: getColor() }"
+[ngClass]="{ online: serverStatus === 'online'}">Inside the {{'Rohith server'}} component with ID {{ serverId }} and status {{ getServerStatus() }}</p> <!-- String interpolation -->
+
+<!-- ngStyle and ngClass has to be wrapped inside square brackets as we apply property binding-->
